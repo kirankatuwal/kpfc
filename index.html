@@ -1,14 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTE SPELLING TEST</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PTE Spelling Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-    TESTING > > > KIRAN SINGH KATUWAL >>>
-</body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="bar-white"></span>
+          <span class="bar-purple"></span>
+          <span class="bar-green"></span>
+        </span>
+        <h1>PTE Spelling Practice</h1>
+      </div>
+      <div id="countControl" class="count-control">
+        <label class="word-count-label" for="wordCountSelect">Words:</label>
+        <select id="wordCountSelect">
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+        </select>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <!-- Learn Phase -->
+    <section id="learnPhase">
+      <div class="mb-8">
+        <h2 class="page-title">Learn these words</h2>
+        <p class="page-subtitle">Study each word, then test your spelling.</p>
+      </div>
+      <div id="wordGrid" class="grid"></div>
+      <div class="center mt-10">
+        <button id="startBtn" class="btn btn-primary">Test Me &rarr;</button>
+      </div>
+    </section>
+
+    <!-- Test Phase -->
+    <section id="testPhase" class="hidden">
+      <div class="mb-8">
+        <div class="progress-meta">
+          <span id="wordCounter">Word 1 of 20</span>
+          <span id="progressPct">0%</span>
+        </div>
+        <div class="progress-bar-outer">
+          <div id="progressBar" class="progress-bar-inner" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="test-card">
+        <div class="center space-y-2">
+          <p id="testMeaning" class="test-meaning"></p>
+          <p id="testExample" class="test-example"></p>
+        </div>
+        <div id="tileRow" class="tile-row"></div>
+        <p id="letterInfo" class="center letter-info"></p>
+        <div class="input-row">
+          <input
+            id="wordInput"
+            type="text"
+            class="text-input"
+            placeholder="Type the word..."
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+          />
+          <button id="checkBtn" class="btn btn-primary">Check</button>
+        </div>
+        <div id="feedbackBox"></div>
+      </div>
+    </section>
+
+    <!-- Results Phase -->
+    <section id="resultsPhase" class="hidden">
+      <div class="score-card">
+        <p class="score-label">Your score</p>
+        <p class="score-value"><span id="scoreCorrect">0</span><span class="score-divider">/</span><span id="scoreTotal">0</span></p>
+        <p id="scoreMessage" class="score-message"></p>
+        <button id="retryBtn" class="btn btn-primary mt-6">Try Again</button>
+      </div>
+      <div class="mt-8">
+        <h3 class="review-title">Review</h3>
+        <ul id="reviewList" class="review-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="words.js"></script>
+  <script src="app.js"></script>
+</body>
 </html>
